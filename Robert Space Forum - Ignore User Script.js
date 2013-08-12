@@ -8,7 +8,7 @@
 var Users = [
                 {userName: "xxx",      hidePost: false,    hideQuote: false},
                 {userName: "xxx",      hidePost: true,     hideQuote: false},
-                {userName: "xxx",         hidePost: true,     hideQuote: false}
+                {userName: "xxx",      hidePost: true,     hideQuote: false}
             ];
 
 var posts = $("div.Comment");
