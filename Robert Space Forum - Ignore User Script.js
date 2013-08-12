@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name        Robert Space Industries - Hide user posts/quotes
 // @namespace   https://forums.robertsspaceindustries.com/
-// @version     0.2
+// @version     0.3
 // @grant       none
 // ==/UserScript==
 
-var userNames = [ "firstUser", "secondUser" ];
+var userNames = [ "xxx", "xxx", "xxx" ];
 var completeHidePosts = false;
 var completeHideQuotes = false;
 
@@ -44,7 +44,11 @@ posts.each(function(index ) {
                         article.show();
                     }
                      
-                });            
+                });    
+
+                // hide signature
+                
+                post.find("div.UserSignature").hide();
             }      
         }
         
