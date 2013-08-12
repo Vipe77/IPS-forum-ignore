@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Robert Space Industries - Hide user posts/quotes
 // @namespace   https://forums.robertsspaceindustries.com/
-// @version     1
+// @version     0.2
 // @grant       none
 // ==/UserScript==
 
