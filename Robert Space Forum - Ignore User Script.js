@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name        Robert Space Industries - Hide user posts/quotes
 // @namespace   https://forums.robertsspaceindustries.com/
-// @version     0.3
+// @version     0.4
 // @grant       none
 // ==/UserScript==
 
-var userNames = [ "xxx", "xxx", "xxx" ];
-var completeHidePosts = false;
-var completeHideQuotes = false;
+var Users = [
+                {userName: "xxx",      hidePost: false,    hideQuote: false},
+                {userName: "xxx",      hidePost: true,     hideQuote: false},
+                {userName: "xxx",         hidePost: true,     hideQuote: false}
+            ];
 
 var posts = $("div.Comment");
 
@@ -16,15 +18,18 @@ posts.each(function(index ) {
     
     // check Author in posts
     
-    for (var i in userNames)
+    for (var id in Users)
     {
-        var hideUser = userNames[i];
+        var hideUser = Users[id].userName;
+        var hidePost = Users[id].hidePost;
+        var hideQuote = Users[id].hideQuote;
+
         var check = post.find("div.header div.Author div.AuthorInfo a.Username:contains('"+hideUser+"');");
         if (check.length > 0)
         {
-            if (completeHidePosts)
-            {
-                post.hide();
+            if (hidePost)
+            {            
+                post.parent().hide();       // hide everything
             }
             else
             {
@@ -47,7 +52,7 @@ posts.each(function(index ) {
                 });    
 
                 // hide signature
-                
+
                 post.find("div.UserSignature").hide();
             }      
         }
@@ -62,7 +67,7 @@ posts.each(function(index ) {
             
             if (check.length > 0)
             {
-                if (!completeHideQuotes)
+                if (!hideQuote)
                 {                 
                     quote.before("<div><a class='ignoreLink'>Toggle visbility quote from "+hideUser+"</a> <a class='QuoteFolding' href=''>» show previous quotes</a></div>");
                     var ignoreLink = $("a.ignoreLink:last");
