@@ -6,10 +6,42 @@
 // ==/UserScript==
 
 var Users = [
-                {userName: "xxx",      hidePost: false,    hideQuote: false},
-                {userName: "xxx",      hidePost: true,     hideQuote: false},
-                {userName: "xxx",      hidePost: true,     hideQuote: false}
+                {userName: "xx",    hideThread: false, hidePost: false, hideQuote: false},
+                {userName: "xx",    hideThread: true,  hidePost: true,  hideQuote: false},
+                {userName: "xx",    hideThread: true,  hidePost: true,  hideQuote: true},                
+                {userName: "xx",    hideThread: true,  hidePost: true,  hideQuote: false}
             ];
+
+// process threads
+
+var threads = $("ul.Discussions li.ItemDiscussion");
+
+threads.each( function(index) {
+    var thread = $(this);
+
+    for (var id in Users)
+    {
+        var hideUser = Users[id].userName;
+        var hideThread = Users[id].hideThread;
+
+        if (hideThread)
+        {
+            var check = thread.find("div.Discussion div.started-by div.text p.started-name a:contains('"+hideUser+"')");
+
+            if (check.length > 0)
+            {
+                
+                // hide thread
+
+                thread.hide();
+                
+            }
+        }
+    }
+});
+
+
+// process posts
 
 var posts = $("div.Comment");
 
@@ -29,7 +61,9 @@ posts.each(function(index ) {
         {
             if (hidePost)
             {            
-                post.parent().hide();       // hide everything
+                // hide post
+
+                post.parent().hide();      
             }
             else
             {
@@ -81,6 +115,8 @@ posts.each(function(index ) {
                     quote.after("<br>");               
                 }
                 
+                // hide quote
+
                 quote.hide();            
             }
         });
