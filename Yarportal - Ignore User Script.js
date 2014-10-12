@@ -1,17 +1,18 @@
 // ==UserScript==
 // @name        Vipe's yarportal ignore thread/post/quote
 // @namespace   http://yarportal.ru/
-// @version     0.1
+// @description Based on opicron/RSI-forum-ignore-script.
+// @version     0.1.141012
 // @grant       none
 // @include     http://yarportal.ru/*
 // @include     http://www.yarportal.ru/*
+// @require     http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
 // ==/UserScript==
 
 var Users = [
-                {userName: "xx",    hideThread: false, hidePost: false, hideQuote: false},
-                {userName: "xx",    hideThread: true,  hidePost: true,  hideQuote: false},
+                {userName: "Joy",    hideThread: true,  hidePost: true,  hideQuote: true},                
+                {userName: "Папа",    hideThread: true,  hidePost: true,  hideQuote: true},                
                 {userName: "xx",    hideThread: true,  hidePost: true,  hideQuote: true},                
-                {userName: "xx",    hideThread: true,  hidePost: true,  hideQuote: false}
             ];
 
 // process threads
