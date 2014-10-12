@@ -5,3 +5,12 @@
 // @include http://yarportal.ru/*
 // @include http://www.yarportal.ru/*
 
+if (~window.location.pathname.IndexOf('/forum'){
+
+alert ("Список тем!")
+  
+} else {
+  
+  alert("Список тем!")
+  
+}
