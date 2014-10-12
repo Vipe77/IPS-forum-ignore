@@ -1,21 +1,23 @@
 // ==UserScript==
-// @name        Vipe's yarportal ignore thread/post/quote
-// @namespace   http://yarportal.ru/
-// @description Based on opicron/RSI-forum-ignore-script.
-// @version     0.1.141012
-// @grant       none
-// @include     http://yarportal.ru/*
-// @include     http://www.yarportal.ru/*
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
+// @name                        Vipe's yarportal ignore thread/post/quote
+// @namespace                   http://yarportal.ru/
+// @description	                Based on opicron/RSI-forum-ignore-script.
+// @version                     0.1.141012
+// @grant                       none
+// @include                     http://yarportal.ru/*
+// @include                     http://www.yarportal.ru/*
+// @require                     http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
 // ==/UserScript==
 
 var Users = [
-                {userName: "Joy",    hideThread: true,  hidePost: true,  hideQuote: true},                
-                {userName: "Папа",    hideThread: true,  hidePost: true,  hideQuote: true},                
-                {userName: "xx",    hideThread: true,  hidePost: true,  hideQuote: true},                
+                {userName: "Joy",		hideThread: true,  hidePost: true,  hideQuote: true},                
+                {userName: "Папа",		hideThread: true,  hidePost: true,  hideQuote: true},                
+                {userName: "xx",		hideThread: true,  hidePost: true,  hideQuote: true},                
             ];
 
 // process threads
+
+if (~window.location.pathname.IndexOf('/forum'){
 
 var threads = $("ul.Discussions li.ItemDiscussion");
 
@@ -42,7 +44,7 @@ threads.each( function(index) {
         }
     }
 });
-
+}
 
 // process posts
 
