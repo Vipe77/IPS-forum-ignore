@@ -1,8 +1,10 @@
 // ==UserScript==
-// @name        Robert Space Industries - Hide user posts/quotes
-// @namespace   https://forums.robertsspaceindustries.com/
-// @version     0.4
+// @name        Vipe's yarportal ignore thread/post/quote
+// @namespace   http://yarportal.ru/
+// @version     0.1
 // @grant       none
+// @include     http://yarportal.ru/*
+// @include     http://www.yarportal.ru/*
 // ==/UserScript==
 
 var Users = [
@@ -103,7 +105,7 @@ posts.each(function(index ) {
             {
                 if (!hideQuote)
                 {                 
-                    quote.before("<div><a class='ignoreLink'>Toggle visbility quote from "+hideUser+"</a> <a class='QuoteFolding' href=''>» show previous quotes</a></div>");
+                    quote.before("<div><a class='ignoreLink'>Toggle visbility quote from "+hideUser+"</a> <a class='QuoteFolding' href=''>Â» show previous quotes</a></div>");
                     var ignoreLink = $("a.ignoreLink:last");
                     ignoreLink.click(function() {
                         $(this).next().click();                
